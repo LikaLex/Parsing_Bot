@@ -7,10 +7,12 @@ class Scraper
     @coming_out = {}
   end
 
-
   def information
     agent = Mechanize.new
     parser(agent.get('http://www.newnownext.com/national-coming-out-day-12-celebrities-who-came-out-in-the-past-12-months/10/2015/'))
+    parser(agent.get('http://www.newnownext.com/gay-celebrities-coming-out-2016/10/2016/'))
+    parser(agent.get('http://www.newnownext.com/gay-celebrities-coming-out-2017/10/2017/'))
+
     save_info('list.json')
   end
 
@@ -19,7 +21,6 @@ class Scraper
       file.write @coming_out.to_json
     end
   end
-
 
   def parser(page)
     review_links = page.search('.listicle-container')
@@ -35,8 +36,5 @@ class Scraper
       end
     end
   end
-
-
-
 
 end

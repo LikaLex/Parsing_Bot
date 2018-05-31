@@ -1,5 +1,6 @@
 require './main'
 require_relative 'scraper'
+require_relative 'translator'
 
 
 parse = Scraper.new

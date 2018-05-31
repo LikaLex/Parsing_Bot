@@ -9,3 +9,4 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'mechanize', '~> 2.7', '>= 2.7.5'
 gem 'json', '~> 2.1'
+gem 'yandex-translator'

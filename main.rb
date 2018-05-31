@@ -12,17 +12,17 @@ end
 
 
 def search_actor(bot, message)
-
+  translator =  Translate.new.translate(message.text.upcase).to_s
   actor = message.text.upcase.to_s
-  if  @actors.key?(actor)
+  if @actors.key?(translator) || @actors.key?(actor)
     bot.api.send_message(
       chat_id: message.chat.id,
-      text: "#{actor}:\n-#{@actors[actor]}"
+      text: "#{translator}:\n-#{@actors[translator]}"
     )
   elsif !@actors.key?(message.text.upcase.to_s)
     bot.api.send_message(
       chat_id: message.chat.id,
-      text: "Don't know. Please, try again."
+      text: "Don't know. Please, try another person."
     )
   end
 end
